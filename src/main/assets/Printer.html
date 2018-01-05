@@ -1,0 +1,31 @@
+<html>
+
+<body>
+
+<p>
+    <button id="btnPrinterPage" type="button"
+            style="height:50px;width:100px;margin-left:100px;margin-top:100px;"
+            onclick="printSample();">打印示列页面
+    </button>
+</p>
+</body>
+
+<script>
+
+        <!--调用Java中的方法 window.android定义类别名.类方法-->
+        function printSample(){
+
+            var printComplete=window.android.PrinterSample();
+
+            //判断是否打印完成
+            if(printComplete){
+                 window.alert("示列页面打印完成");
+            }else{
+                window.alert("示列页面打印失败，请检查打印机状态");
+            }
+        }
+
+
+</script>
+
+</html>
