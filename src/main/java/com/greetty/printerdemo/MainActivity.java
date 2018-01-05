@@ -29,9 +29,6 @@ import butterknife.OnClick;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
-    /**
-     * JS页面通过该别名获取类中的方法
-     */
     private static final String PRINTER_CLASS_METHOD_ALIAS = "android";
 
     private static final byte[] CMD_LINE_FEED = {0x0a};
@@ -57,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * 初始化WebView页面
+     * init WebView
      */
     @SuppressLint("JavascriptInterface")
     private void initWebView() {
@@ -72,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * JS访问类
+     * JS access classes
      */
     private class PrinterJsInteration {
 
@@ -86,15 +83,15 @@ public class MainActivity extends AppCompatActivity {
 
                 final OutputStream os = prt.getOutputStream();
 
-                if (!prt.ready())  //打印机未准备就绪
+                if (!prt.ready())  //printer unready
                     return false;
 
                 os.write(data);
 
-                if (!prt.ready()) //打印机未打印机完成
+                if (!prt.ready()) //print not complete
                     return false;
                 else
-                    return true; //打印完成
+                    return true; //print complete
 
             } catch (Throwable throwable) {
                 throwable.printStackTrace();
@@ -105,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * 生成SamplePage
+     * create SamplePage
      *
      * @return
      * @throws UnsupportedEncodingException exception
@@ -137,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     /**
-     * 生成测试页面
+     * create test page
      */
     public static String getSamplePage() {
         StringBuilder sb = new StringBuilder();
@@ -145,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
         Date d = new Date();
         String date = d.toLocaleString();
 
-        // 页面内容
+        // page content
         sb.append('\n');
         sb.append(date + "\n");
         sb.append("Waiter : Alex.\n");
@@ -158,8 +155,8 @@ public class MainActivity extends AppCompatActivity {
         sb.append("1 x  Pineapple Fritter   1.8 \n");
         sb.append("1 x  Curry Sauce         1.0 \n");
         sb.append("2 x  Chilli Sauce        1.0 \n");
-        sb.append("1 x  炒面 (大)            2.9 \n");
-        sb.append("2 x  可乐(瓶装)            1.3 \n");
+        sb.append("1 x  Fried noodles (big) 2.9 \n");
+        sb.append("2 x  Coke (bottled)      1.3 \n");
         sb.append("-----------------------------\n");
         sb.append("Total Discount MarkUp Balance\n");
         sb.append("16.20 0.00      0.00    16.20\n");

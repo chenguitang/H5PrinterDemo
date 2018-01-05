@@ -4,24 +4,27 @@
 
 <p>
     <button id="btnPrinterPage" type="button"
-            style="height:50px;width:100px;margin-left:100px;margin-top:100px;"
-            onclick="printSample();">打印示列页面
+            style="height:80px;width:150px;margin-left:100px;margin-top:100px;font-size:16px"
+            onclick="printSample();">Print  Sample  Page
     </button>
 </p>
 </body>
 
 <script>
 
-        <!--调用Java中的方法 window.android定义类别名.类方法-->
+        /*
+        printer test
+        Get the method to print the data in the Java class in Android
+        */
         function printSample(){
 
             var printComplete=window.android.PrinterSample();
 
-            //判断是否打印完成
+            //Determine whether printing is completed
             if(printComplete){
-                 window.alert("示列页面打印完成");
+                 window.alert("Print sample page complete");
             }else{
-                window.alert("示列页面打印失败，请检查打印机状态");
+                window.alert("Print failure,Please check printer");
             }
         }
 
